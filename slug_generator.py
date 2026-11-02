@@ -1,10 +1,10 @@
 import sys
 import re
 
-
 def generate_slug(text):
     if not text:
         return ""
+
 
     slug = text.lower().strip()
     slug = re.sub(r'[^a-z0-9\s-]', '', slug)
