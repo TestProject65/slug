@@ -1,12 +1,15 @@
 import sys
-
+import re
 
 
 def generate_slug(text):
     if not text:
         return ""
 
-    return text.replace(" ", "-")
+    slug = text.lower().strip()
+    slug = re.sub(r'[^a-z0-9\s-]', '', slug)
+    slug = re.sub(r'[\s-]+', '-', slug)
+    return slug 
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
